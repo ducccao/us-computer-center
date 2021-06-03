@@ -1,5 +1,6 @@
 package HCMUS.Computer.Center;
 import javax.swing.*;
+import HCMUS.*;
 
 
 
@@ -9,21 +10,16 @@ public class HCMUSComputerCenter {
 		// TODO Auto-generated method stub
 		System.out.println("Hi");
 		
-		// Home Screen
-		JFrame f=new JFrame("HCMUS Computer Center");
+		/* *****************
+		 * Login Screen
+		 * ***************** */
+		LoginScreen loginScreen =new LoginScreen();
 		
-		
-		JButton b= new JButton("Click here");
-		
-		b.setBounds(100,100,100, 40);    
-		
-		f.add(b);
-		f.setSize(400,400);
-
-		f.setLayout(null);
-		f.setVisible(true);
+		loginScreen.render2();
 			
-		
+		/* *****************
+		 * End Login Screen
+		 * ***************** */
 	}
 
 }

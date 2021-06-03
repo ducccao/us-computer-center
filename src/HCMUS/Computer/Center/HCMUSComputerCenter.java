@@ -15,8 +15,14 @@ public class HCMUSComputerCenter {
 		 * ***************** */
 		LoginScreen loginScreen =new LoginScreen();
 		
-		loginScreen.render2();
-			
+//		loginScreen.render2();
+		
+		QuanLyTTSceen qlttScreen=new QuanLyTTSceen();
+		
+		qlttScreen.render();
+		
+	
+		
 		/* *****************
 		 * End Login Screen
 		 * ***************** */

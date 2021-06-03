@@ -25,18 +25,16 @@ public class LoginScreen extends JFrame implements ActionListener   {
 		
 	}
 	
-	// Overriding actionPerform method
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-	}
 	
 	
+	// set layout
 	public void setLayoutManager() {
 		container.setLayout(null);
 	}
 	
+	// set location & size
 	public void setLocationAndSize() {
+
 		maUserLb.setBounds(100,40,160,30);
 		maUserTf.setBounds(100,80,160,30);
 		passwordLb.setBounds(100,120,160,30);
@@ -44,17 +42,29 @@ public class LoginScreen extends JFrame implements ActionListener   {
 		loginBtn.setBounds(100,210,160,30);
 	}
 	
+	// add all packs to layout
 	public void addPackToContainer() {
 		container.add(maUserLb);
 		container.add(maUserTf);
 		container.add(passwordLb);
 		container.add(passwordTf);
 		container.add(loginBtn);
-
+	}
+	
+	
+	// add action event
+	public void addActionEvent() {
+		loginBtn.addActionListener(this);
+	}
+	
+	// Overriding actionPerform method
+	@Override
+	public void actionPerformed(ActionEvent e) {
 		
 	}
 	
 	
+	// render form
 	public void render2() {
 		LoginScreen loginScreen=new LoginScreen();
 		loginScreen.setTitle("Đăng nhập");
@@ -64,6 +74,7 @@ public class LoginScreen extends JFrame implements ActionListener   {
 		loginScreen.setLocationRelativeTo(null);
 		loginScreen.setResizable(false);
 		
+
 	}
 	
 	

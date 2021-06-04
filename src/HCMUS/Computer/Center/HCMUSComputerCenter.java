@@ -33,9 +33,13 @@ public class HCMUSComputerCenter {
 		
 		// Man hinh lap lich hoc
 		LapLichHocScreen llhScreen=new LapLichHocScreen();
-		llhScreen.render();
+//		llhScreen.render();
 		
-	
+		
+		
+		// Man hinh lap lich day
+		LapLichDayScreen lldScreen=new LapLichDayScreen();
+		lldScreen.render();
 		
 	
 	}

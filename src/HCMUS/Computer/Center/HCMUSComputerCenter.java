@@ -24,7 +24,12 @@ public class HCMUSComputerCenter {
 		
 		// Man hinh tra cuu lop hoc
 		TraCuuLopHocScreen tclhScreen=new TraCuuLopHocScreen();
-		tclhScreen.render();
+//		tclhScreen.render();
+		
+		
+		// Man hinh tra cuu khoa hoc
+		TraCuuKhoaHocScreen tckhScreen=new TraCuuKhoaHocScreen();
+		tckhScreen.render();
 		
 	
 		

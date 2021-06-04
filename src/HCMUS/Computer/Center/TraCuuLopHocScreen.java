@@ -15,10 +15,10 @@ public class TraCuuLopHocScreen {
 			
 			
 			// labels
-			JLabel lbDSLopHoc  = new JLabel("Danh sách lớp học");
+			JLabel lbDSLopHoc  = new JLabel("<html><body style='height:100vh;display:flex;justify-content:flex-start;'>Danh sách lớp học</body></html");
 			
 			// panel
-			GridLayout grid=new GridLayout(2,2);
+			GridLayout grid=new GridLayout(2,3);
 	
 
 			// Table lop hoc
@@ -30,6 +30,14 @@ public class TraCuuLopHocScreen {
 			JPanel panel=new JPanel(grid);
 			panel.add(lbDSLopHoc);
 			panel.add(tblLopHocPane);
+			
+			// btn backs
+			JButton btnBack=new JButton("Trở về");
+			btnBack.setBounds(50,50,50,50);
+			btnBack.setLocation(250,250);
+			
+			
+			panel.add(btnBack);
 			
 			
 			fmTraCuuLopHoc.add(panel);		

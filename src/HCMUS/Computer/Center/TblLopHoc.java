@@ -1,4 +1,6 @@
 package HCMUS.Computer.Center;
+import java.awt.GridLayout;
+
 import javax.swing.*;
 
 public class TblLopHoc {
@@ -16,22 +18,35 @@ public class TblLopHoc {
 		// data
 		String[][] data= {
 				{
-					"caheo","3"
+					"LH01","Lớp kỹ thuật viên"
 				},
 				{
-					"ca map","1"
+					"LH02","Lớp chuyên đề"
+				},
+				{
+					"LH03","Lớp chứng chỉ tin học A"
+				},
+				{
+					"LH04","Lớp chứng chỉ tin học B"
 				}
 		};
 		
 		// col name
-		String[] columnNames= {"Họ tên","Tuổi"};
+		String[] columnNames= {"Mã lớp học","Tên lớp học"};
+		
+
+	
 		
 		tb=new JTable(data,columnNames);
 		tb.setBounds(30,40,200,200);
+
 		
 		
 		// adding to jscrollpane
+		GridLayout grid=new GridLayout(1,1);
 		JScrollPane scrollPane=new JScrollPane(tb);
+		
+	
 		
 		
 		return scrollPane;

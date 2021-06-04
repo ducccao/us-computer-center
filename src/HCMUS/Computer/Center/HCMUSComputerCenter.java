@@ -47,8 +47,11 @@ public class HCMUSComputerCenter {
 		
 		// Man hinh tra cuu thong tin hoc vien
 		TraCuuThongTinHocVienScreen tctthvScreen=new TraCuuThongTinHocVienScreen();
-		tctthvScreen.render();
+//		tctthvScreen.render();
 		
+		// Man hinh tra cuu giay chung nhan
+		TraCuuGiayChungNhanScreen tcgcnScreen=new TraCuuGiayChungNhanScreen();
+		tcgcnScreen.render();
 	
 	}
 

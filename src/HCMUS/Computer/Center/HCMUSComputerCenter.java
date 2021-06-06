@@ -1,6 +1,8 @@
 package HCMUS.Computer.Center;
 import javax.swing.*;
 import HCMUS.*;
+import HCMUS.Computer.Center.Client.GiangVienScreen;
+import HCMUS.Computer.Center.Client.HocVienScreen;
 
 
 
@@ -51,7 +53,16 @@ public class HCMUSComputerCenter {
 		
 		// Man hinh tra cuu giay chung nhan
 		TraCuuGiayChungNhanScreen tcgcnScreen=new TraCuuGiayChungNhanScreen();
-		tcgcnScreen.render();
+//		tcgcnScreen.render();
+		
+		
+		// man hinh giang vien
+		GiangVienScreen gvScreen=new GiangVienScreen();
+//		gvScreen.render();
+		
+		// man hinh hoc vien
+		HocVienScreen hvScreen=new HocVienScreen();
+		hvScreen.render();
 	
 	}
 

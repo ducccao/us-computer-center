@@ -1,6 +1,8 @@
 package HCMUS.Computer.Center.Client;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class QuanLyTTSceen {
 	public void render() {
@@ -35,6 +37,19 @@ public class QuanLyTTSceen {
 		JButton btnTraCuuTTHocVien=new JButton();
 		JButton btnTraCuuTTGiayChungNhan=new JButton();
 		JButton btnTest=new JButton();
+		
+		ActionListener btnTraCuuLopHocActionListener= new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				TraCuuLopHocScreen fmTraCuuLopHoc=new TraCuuLopHocScreen();
+				fmTraCuuLopHoc.render();
+				return;
+			}
+		};
+		
+		btnTraCuuLopHoc.addActionListener(btnTraCuuLopHocActionListener);
 		
 		
 		

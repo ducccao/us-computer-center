@@ -185,17 +185,18 @@ public class LoginScreen extends JFrame implements ActionListener   {
 	// render form
 	public void render2() {
 
-		
-		
-		
+	
 		
 		LoginScreen loginScreen=new LoginScreen();
 		loginScreen.setTitle("Đăng nhập");
-		loginScreen.setVisible(true);
 		loginScreen.setBounds(10,10,350,300);
 		loginScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		loginScreen.setLocationRelativeTo(null);
 		loginScreen.setResizable(false);
+
+		loginScreen.setVisible(true);
+		
+	
 		
 
 	}

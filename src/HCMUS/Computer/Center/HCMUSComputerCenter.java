@@ -3,6 +3,7 @@ import javax.swing.*;
 import HCMUS.*;
 import HCMUS.Computer.Center.Client.GiangVienScreen;
 import HCMUS.Computer.Center.Client.HocVienScreen;
+import HCMUS.Computer.Center.Data.Db;
 
 
 
@@ -62,7 +63,10 @@ public class HCMUSComputerCenter {
 		
 		// man hinh hoc vien
 		HocVienScreen hvScreen=new HocVienScreen();
-		hvScreen.render();
+//		hvScreen.render();
+		
+		Db db=new Db();
+		db.all();
 	
 	}
 

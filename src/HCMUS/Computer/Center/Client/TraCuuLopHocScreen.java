@@ -1,7 +1,6 @@
-package HCMUS.Computer.Center;
+package HCMUS.Computer.Center.Client;
 import javax.swing.*;
 import java.awt.*;
-import HCMUS.Computer.Center.TblLopHoc;
 
 public class TraCuuLopHocScreen {
 		public void render() {

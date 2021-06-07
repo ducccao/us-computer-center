@@ -1,4 +1,4 @@
-package HCMUS.Computer.Center;
+package HCMUS.Computer.Center.Client;
 import javax.swing.*;
 
 
@@ -17,7 +17,7 @@ public class LoginScreen extends JFrame implements ActionListener   {
 	JButton loginBtn=new JButton("Đăng nhập");
 	JButton resetBtn=new JButton("Reset");
 	
-	LoginScreen(){
+	public LoginScreen(){
 		
 		setLayoutManager();
 		setLocationAndSize();

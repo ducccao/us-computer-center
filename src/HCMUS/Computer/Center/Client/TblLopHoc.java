@@ -1,4 +1,4 @@
-package HCMUS.Computer.Center;
+package HCMUS.Computer.Center.Client;
 import java.awt.GridLayout;
 
 import javax.swing.*;

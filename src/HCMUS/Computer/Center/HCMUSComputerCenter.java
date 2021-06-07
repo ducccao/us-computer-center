@@ -4,6 +4,9 @@ import HCMUS.*;
 import HCMUS.Computer.Center.Client.GiangVienScreen;
 import HCMUS.Computer.Center.Client.HocVienScreen;
 import HCMUS.Computer.Center.Data.Db;
+import HCMUS.Computer.Center.Data.KhoaHocDB;
+
+import java.sql.*;
 
 
 
@@ -64,9 +67,9 @@ public class HCMUSComputerCenter {
 		// man hinh hoc vien
 		HocVienScreen hvScreen=new HocVienScreen();
 //		hvScreen.render();
-		
-		Db db=new Db();
-		db.all();
+
+		KhoaHocDB khoahocModel=new KhoaHocDB();
+		khoahocModel.all();
 	
 	}
 

@@ -1,11 +1,12 @@
 package HCMUS.Computer.Center.Client;
 import javax.swing.*;
 
-
+import HCMUS.Computer.Center.Logic.UserController;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 
 public class LoginScreen extends JFrame implements ActionListener   {
@@ -16,6 +17,25 @@ public class LoginScreen extends JFrame implements ActionListener   {
 	JPasswordField passwordTf=new JPasswordField();
 	JButton loginBtn=new JButton("Đăng nhập");
 	JButton resetBtn=new JButton("Reset");
+	
+	
+	Vector<Vector<String>> allMaNguoiDung=new Vector<Vector<String>>(0);
+	Vector<Vector<String>> allMatKhauNguoiDung=new Vector<Vector<String>>(0);
+	
+	
+	
+	/*
+	 * Print Vector<Vector<String>>
+	 */
+	public  void logVectorVectorString(Vector<Vector<String>>a) {
+		for(int i=0;i<a.size();++i) {
+			for(int j=0;j<a.get(i).size();++j) {
+				System.out.print(a.get(i).get(j)+" ");
+			}
+			System.out.println("");
+		}
+	}
+	
 	
 	public LoginScreen(){
 		
@@ -31,7 +51,7 @@ public class LoginScreen extends JFrame implements ActionListener   {
 	public void setLayoutManager() {
 		container.setLayout(null);
 	}
-	
+
 	// set location & size
 	public void setLocationAndSize() {
 
@@ -40,6 +60,104 @@ public class LoginScreen extends JFrame implements ActionListener   {
 		passwordLb.setBounds(100,120,160,30);
 		passwordTf.setBounds(100,160,160,30);
 		loginBtn.setBounds(100,210,160,30);
+		
+		// handle btn login click
+		ActionListener btnLoginActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				UserController userController=new UserController();
+				allMaNguoiDung= userController.layTatCaMaNguoiDung();
+				allMatKhauNguoiDung=userController.layTatCaMatKhauNguoiDung();
+
+				String maNguoiDung=maUserTf.getText();
+				String matKhauNguoiDung=passwordTf.getText();
+				
+				for(int i=0;i<allMaNguoiDung.size();++i) {
+				
+					// 0: HocVien
+					// 1: GiangVien
+					// 2: NVQL
+					for(int j=0;j<allMaNguoiDung.get(i).size();j++) {
+						if(i==0) {
+						String maNguoiDungij = allMaNguoiDung.get(i).get(j).toString();
+						String matKhauNguoiDungij = allMatKhauNguoiDung.get(i).get(j).toString();
+					
+				
+						boolean flagCheckInfo=	maNguoiDungij.equals(maNguoiDung) &&
+								matKhauNguoiDungij.equals(matKhauNguoiDung);
+						
+			
+				
+							if(flagCheckInfo==true) {
+								
+								HocVienScreen fmHocVien=new HocVienScreen();
+								fmHocVien.render();
+								
+								return;
+							}
+						
+						}
+						else if(i==1) {
+							
+							String maNguoiDungij = allMaNguoiDung.get(i).get(j).toString();
+							String matKhauNguoiDungij = allMatKhauNguoiDung.get(i).get(j).toString();
+						
+					
+							boolean flagCheckInfo=	maNguoiDungij.equals(maNguoiDung) &&
+									matKhauNguoiDungij.equals(matKhauNguoiDung);
+							
+				
+					
+								if(flagCheckInfo==true) {
+									
+									GiangVienScreen fmGiangVien=new GiangVienScreen();
+									fmGiangVien.render();
+									
+									return;
+								}
+							
+						}
+						else {
+
+							String maNguoiDungij = allMaNguoiDung.get(i).get(j).toString();
+							String matKhauNguoiDungij = allMatKhauNguoiDung.get(i).get(j).toString();
+						
+					
+							boolean flagCheckInfo=	maNguoiDungij.equals(maNguoiDung) &&
+									matKhauNguoiDungij.equals(matKhauNguoiDung);
+							
+				
+					
+								if(flagCheckInfo==true) {
+									
+									QuanLyTTSceen fmNVQL=new QuanLyTTSceen();
+									fmNVQL.render();
+									
+									return;
+								}
+						}
+					}
+					
+					
+					
+					
+					
+				}
+			
+				
+			
+				JOptionPane.showMessageDialog(new JFrame(), "Sai thông tin!");
+	
+			
+				
+			
+			}
+		};
+		
+		loginBtn.addActionListener(btnLoginActionListener);
 	}
 	
 	// add all packs to layout
@@ -50,7 +168,7 @@ public class LoginScreen extends JFrame implements ActionListener   {
 		container.add(passwordTf);
 		container.add(loginBtn);
 	}
-	
+
 	
 	// add action event
 	public void addActionEvent() {
@@ -66,6 +184,11 @@ public class LoginScreen extends JFrame implements ActionListener   {
 	
 	// render form
 	public void render2() {
+
+		
+		
+		
+		
 		LoginScreen loginScreen=new LoginScreen();
 		loginScreen.setTitle("Đăng nhập");
 		loginScreen.setVisible(true);
@@ -76,6 +199,13 @@ public class LoginScreen extends JFrame implements ActionListener   {
 		
 
 	}
+	
+	
+	public Vector<Vector<String>> setMaNguoiDung() {
+		UserController userController=new UserController();
+		return	this.allMaNguoiDung= userController.layTatCaMaNguoiDung();
+	}
+	
 	
 	
 	/*

@@ -1,14 +1,19 @@
 package HCMUS.Computer.Center.Data;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Vector;
-public class HocVienDB {
+
+public class NhanVienQuanLyDB {
 	private String Url="jdbc:mysql://localhost:3306/us-computer-center";
 	private String username="root";
 	private String password="root";
-	private String tblName="hocvien";
+	private String tblName="nhanvienquanly";
 	
 	
-	private Vector<String> maHocVienData=new Vector<String>(0);
+	private Vector<String> maNhanVienData=new Vector<String>(0);
 	private Vector<String>  matKhauData=new Vector<String>(0);
 	private Vector<String>  chucVuData=new Vector<String>(0);
 	private Vector<String>  hoTenData=new Vector<String>(0);
@@ -32,7 +37,7 @@ public class HocVienDB {
 			ResultSet rs=stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-				String maHocVien=rs.getString("maHocVien");
+				String maNhanVien=rs.getString("maNhanVien");
 				String matKhau=rs.getString("matKhau");
 				String chucVu=rs.getString("chucVu");
 				String hoTen=rs.getString("hoTen");
@@ -41,7 +46,7 @@ public class HocVienDB {
 				String sdt=rs.getString("sdt");
 		
 				
-				maHocVienData.add(maHocVien);
+				maNhanVienData.add(maNhanVien);
 				matKhauData.add(matKhau);
 				chucVuData.add(chucVu);
 				hoTenData.add(hoTen);
@@ -51,7 +56,7 @@ public class HocVienDB {
 				
 			}
 			
-			all.add(maHocVienData);
+			all.add(maNhanVienData);
 			all.add(matKhauData);
 			all.add(chucVuData);
 			all.add(hoTenData);
@@ -78,40 +83,39 @@ public class HocVienDB {
 	}
 	
 	
-	public Vector<String> layTatCaMaHocVien() {
+	public Vector<String> layTatCaMaNhanVien() {
 		layThongTin();
-		return maHocVienData;
+		return maNhanVienData;
 	}
 	
 	
-	public Vector<String> layTatCaMatKhauHocVien() {
+	public Vector<String> layTatCaMatKhauNhanVien() {
 		layThongTin();
 		return matKhauData;
 	}
 	
-	public Vector<String> layTatCaChucVuHocVien() {
+	public Vector<String> layTatCaChucVuNhanVien() {
 		layThongTin();
 		return chucVuData;
 	}
 	
-	public Vector<String> layTatCaHoTenHocVien() {
+	public Vector<String> layTatCaHoTenNhanVien() {
 		layThongTin();
 		return hoTenData;
 	}
-	public Vector<String> layTatCaNgaySinhHocVien() {
+	public Vector<String> layTatCaNgaySinhNhanVien() {
 		layThongTin();
 		return ngaySinhData;
 	}
 	
-	public Vector<String> layTatCaDiaChiHocVien() {
+	public Vector<String> layTatCaDiaChiNhanVien() {
 		layThongTin();
 		return diaChiData;
 	}
-	public Vector<String> layTatCaSDTHocVien() {
+	public Vector<String> layTatCaSDTNhanVien() {
 		layThongTin();
 		return ngaySinhData;
 	}
 	
 
-	
 }

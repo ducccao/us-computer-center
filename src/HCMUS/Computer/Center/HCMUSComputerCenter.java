@@ -64,12 +64,8 @@ public class HCMUSComputerCenter {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-//		logVectorVectorString(allHocVien);
-		
-		UserController userController=new UserController();
-		Vector<String> allMaNguoiDung=userController.layTatCaMaNguoiDung();
-		
-		logVectorString(allMaNguoiDung);
+		LoginScreen fmLogin=new LoginScreen();
+		fmLogin.render2();
 	
 	}
 

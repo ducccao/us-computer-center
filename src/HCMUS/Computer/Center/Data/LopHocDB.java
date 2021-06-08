@@ -14,6 +14,13 @@ public class LopHocDB {
 	
 	private Vector<String>maLopHocData=new Vector<String>(0);
 	private Vector<String>tenLopHocData=new Vector<String>(0);
+	
+	public LopHocDB() {
+		layThongTin();
+	}
+	
+	
+	
 	public void layThongTin() {
 		try {
 			Connection conn= DriverManager.getConnection(Url,username,password);
@@ -47,12 +54,12 @@ public class LopHocDB {
 	}
 	
 	public Vector<String> layTatCaMaLopHoc() {
-		layThongTin();
+//		layThongTin();
 		return maLopHocData;
 	}
 	
 	public Vector<String> layTatCaTenLopHoc() {
-		layThongTin();
+//		layThongTin();
 		return tenLopHocData;
 	}
 }

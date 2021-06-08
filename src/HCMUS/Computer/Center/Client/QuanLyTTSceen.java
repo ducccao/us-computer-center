@@ -49,8 +49,20 @@ public class QuanLyTTSceen {
 			}
 		};
 		
-		btnTraCuuLopHoc.addActionListener(btnTraCuuLopHocActionListener);
+		ActionListener btnTraCuuKhoaHocActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				TraCuuKhoaHocScreen fmTraCuuKhoaHoc=new TraCuuKhoaHocScreen();
+				fmTraCuuKhoaHoc.render();
+				return;
+			}
+		};
+			
 		
+		btnTraCuuLopHoc.addActionListener(btnTraCuuLopHocActionListener);
+		btnTraCuuKhoaHoc.addActionListener(btnTraCuuKhoaHocActionListener);
 		
 		
 		btnTraCuuLopHoc.add(lbTraCuuLopHoc);

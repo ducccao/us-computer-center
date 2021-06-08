@@ -78,6 +78,7 @@ public class TraCuuLopHocScreen {
 				// i=1: tenlop
 				if(i==0) {
 					for(int j=0;j<dataTatCaLopHoc.get(i).size();++j) {
+						System.out.print(dataTatCaLopHoc.get(i).get(j));
 						dataMaLop=addEleIntoArray1DimensionalString(dataMaLop,dataTatCaLopHoc.get(i).get(j));
 					}
 				}
@@ -88,6 +89,8 @@ public class TraCuuLopHocScreen {
 				}
 			}
 			
+			
+//			logArray1DimensionalString(dataMaLop);
 			
 			
 	

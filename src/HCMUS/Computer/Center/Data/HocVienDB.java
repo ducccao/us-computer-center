@@ -17,6 +17,10 @@ public class HocVienDB {
 	private Vector<String>  sdtData=new Vector<String>(0);
 	private Vector<Vector<String>> all=new Vector<Vector<String>>(0);
 	
+	
+	public HocVienDB() {
+		layThongTin();
+	}
 
 	
 	
@@ -73,42 +77,42 @@ public class HocVienDB {
 	
 	
 	public Vector<Vector<String>>getAll(){
-		layThongTin();
+	
 		return all;
 	}
 	
 	
 	public Vector<String> layTatCaMaHocVien() {
-		layThongTin();
+		
 		return maHocVienData;
 	}
 	
 	
 	public Vector<String> layTatCaMatKhauHocVien() {
-		layThongTin();
+	
 		return matKhauData;
 	}
 	
 	public Vector<String> layTatCaChucVuHocVien() {
-		layThongTin();
+	
 		return chucVuData;
 	}
 	
 	public Vector<String> layTatCaHoTenHocVien() {
-		layThongTin();
+	
 		return hoTenData;
 	}
 	public Vector<String> layTatCaNgaySinhHocVien() {
-		layThongTin();
+	
 		return ngaySinhData;
 	}
 	
 	public Vector<String> layTatCaDiaChiHocVien() {
-		layThongTin();
+		
 		return diaChiData;
 	}
 	public Vector<String> layTatCaSDTHocVien() {
-		layThongTin();
+		
 		return ngaySinhData;
 	}
 	

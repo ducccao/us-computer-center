@@ -12,6 +12,11 @@ public class KhoaHocDB {
 	private String maLopData[]=new String[0];
 	private Vector<String[]> all=new Vector<String[]>(0);
 	
+	
+	public KhoaHocDB() {
+		layThongTin();
+	}
+	
 	public String[] addElementIntoArray( String[] a, String ele) {
 		if(a.length==0) {
 			String[] ret=new String[1];
@@ -60,7 +65,7 @@ public class KhoaHocDB {
 		
 	}
 	
-	public void getAllDataFromDB() {
+	public void layThongTin() {
 			try {
 				Connection conn=DriverManager.getConnection(Url,username,password);
 				Statement stmt=conn.createStatement();
@@ -104,8 +109,7 @@ public class KhoaHocDB {
 	}
 	
 	
-	public Vector<String[]> getAll() {
-		getAllDataFromDB();
+	public Vector<String[]> layDataThongTinLopHoc() {
 		return all;
 	}
 	

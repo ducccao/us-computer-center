@@ -23,6 +23,10 @@ public class GiangVienDB {
 	private Vector<String>  maKhoaHocData=new Vector<String>(0);
 	private Vector<Vector<String>> all=new Vector<Vector<String>>(0);
 	
+		public void GiangVienDB() {
+			layThongTin();
+		}
+	
 	public void layThongTin() {
 		try {
 			Connection conn= DriverManager.getConnection(Url,username,password);
@@ -76,36 +80,36 @@ public class GiangVienDB {
 	}
 	
 	public Vector<String> layTatCaMaGiangVien() {
-		layThongTin();
+	
 		return maGiangVienData;
 	}
 	
 	
 	public Vector<String> layTatCaMatKhauGiangVien() {
-		layThongTin();
+		
 		return matKhauData;
 	}
 	
 	public Vector<String> layTatCaChucVuGiangVien() {
-		layThongTin();
+	
 		return chucVuData;
 	}
 	
 	public Vector<String> layTatCaHoTenGiangVien() {
-		layThongTin();
+	
 		return hoTenData;
 	}
 	public Vector<String> layTatCaNgaySinhGiangVien() {
-		layThongTin();
+
 		return ngaySinhData;
 	}
 	
 	public Vector<String> layTatCaDiaChiGiangVien() {
-		layThongTin();
+	
 		return diaChiData;
 	}
 	public Vector<String> layTatCaSDTGiangVien() {
-		layThongTin();
+		
 		return ngaySinhData;
 	}
 	

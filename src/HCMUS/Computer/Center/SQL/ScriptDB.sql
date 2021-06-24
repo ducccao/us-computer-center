@@ -310,7 +310,7 @@ create table `lichday`(
 	maLichDay nvarchar(200),
     ngayBatDau nvarchar(200),
 	ngayKetThuc  nvarchar(200),
-	ngayHocTrongTuan  nvarchar(200),
+	ngayDayTrongTuan  nvarchar(200),
 	gioBatDau  nvarchar(200),
 	gioKetThuc  nvarchar(200),
 	maKhoaHoc  nvarchar(200),
@@ -322,25 +322,25 @@ create table `lichday`(
 -- ---------------------------------------------------------
 -- Records for lichday
 -- ---------------------------------------------------------
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY01','03/03/2021','03/04/2021','Thu 7','9:00AM','11:00AM','KH01');
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY02','03/03/2021','03/04/2021','Thu 7','7:00AM','9:00AM','KH02');
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY03','03/03/2021','03/04/2021','Thu 7','7:00PM','9:00PM','KH03');
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY04','03/03/2021','03/04/2021','Thu 2','7:00PM','9:00PM','KH04');
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY05','03/03/2021','03/04/2021','Thu 3','7:00PM','9:00PM','KH05');
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY06','03/03/2021','03/04/2021','Thu 4','7:00PM','9:00PM','KH06');
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY07','03/03/2021','03/04/2021','Thu 5','7:00PM','9:00PM','KH07');
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY08','03/03/2021','03/04/2021','Thu 6','7:00PM','9:00PM','KH08');
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY09','03/03/2021','03/04/2021','Thu 2','7:00AM','8:00AM','KH09');
-insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayHocTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
+insert into `lichday` (maLichDay,ngayBatDau,ngayKetThuc,ngayDayTrongTuan,gioBatDau,gioKetThuc,maKhoaHoc) 
 values ('LICHDAY10','03/03/2021','03/04/2021','Thu 3','7:00AM','8:00AM','KH10');
 
 

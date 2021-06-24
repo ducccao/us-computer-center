@@ -11,6 +11,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -122,11 +123,26 @@ public class DangKyKhoaHocScreen {
 				 DangKyKhoaHocController dangKyKhoaHocController=new DangKyKhoaHocController();
 				 dangKyKhoaHocController.setInfo(mahv,tenhv , ngaysinh, diachi, sdt,makhoahoc,manv,isThuPhi);
 				 dangKyKhoaHocController.insertChiTietThanhToanKhoaHoc();
+				 
+				 JFrame nf=new JFrame();
+				 JOptionPane op=new JOptionPane();
+				 op.showMessageDialog(nf, "Đăng ký thành công!");
+				 
 				return;
 			}
 		};
 		
+		ActionListener btnBackActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				fm.dispose();
+			}
+		};
+		
 		btnDangKy.addActionListener(btnDangKyActionListener);
+		btnBack.addActionListener(btnBackActionListener);
 		
 		
 		

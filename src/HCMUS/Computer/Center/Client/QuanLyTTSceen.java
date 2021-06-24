@@ -83,13 +83,27 @@ public class QuanLyTTSceen {
 				return;
 			}
 		};
+		
+		ActionListener btnLapLichDayActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				LapLichDayScreen lldayScreen=new LapLichDayScreen();
+				lldayScreen.render();
+//				LapLichDayScreenTryAgain lldScreen=new LapLichDayScreenTryAgain();
+//				lldScreen.render();
+				return;
+			}
+		};
 			
 		
 		btnTraCuuLopHoc.addActionListener(btnTraCuuLopHocActionListener);
 		btnTraCuuKhoaHoc.addActionListener(btnTraCuuKhoaHocActionListener);
 		btnLapLichHoc.addActionListener(lapLichHocActionListener);
 		btnDangKyKhoaHocChoHocVien.addActionListener(dangkykhoahocActionListener);
-		
+		btnLapLichDay.addActionListener(btnLapLichDayActionListener);
 		
 		
 		btnTraCuuLopHoc.add(lbTraCuuLopHoc);

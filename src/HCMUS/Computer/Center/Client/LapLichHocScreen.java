@@ -1,7 +1,7 @@
 package HCMUS.Computer.Center.Client;
 import javax.swing.*;
 
-
+import HCMUS.Computer.Center.Data.KhoaHocDB;
 import HCMUS.Computer.Center.Logic.LichHocController;
 
 import java.awt.*;
@@ -31,7 +31,8 @@ public class LapLichHocScreen {
 		JTextField tfGioKT=new JTextField();
 		
 		// makh combobox
-		String dataMaKH[]= {"KH01","KH02","KH03"};
+		KhoaHocDB khdb=new KhoaHocDB();
+		String dataMaKH[]= khdb.getMaKhoaHoc();
 		JComboBox cbbMaKH=new JComboBox(dataMaKH);
 		
 		

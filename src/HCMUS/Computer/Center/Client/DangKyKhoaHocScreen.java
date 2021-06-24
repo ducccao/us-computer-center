@@ -2,6 +2,8 @@ package HCMUS.Computer.Center.Client;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -11,6 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import HCMUS.Computer.Center.Data.KhoaHocDB;
+import HCMUS.Computer.Center.Logic.DangKyKhoaHocController;
+import Utils.Utils;
 
 public class DangKyKhoaHocScreen {
 	public void render() {
@@ -33,7 +39,8 @@ public class DangKyKhoaHocScreen {
 		JLabel lbDaThuPhi=new JLabel("Đã thu phí");
 		
 		// inputs
-		String dataTenKH[]= {"Kỹ thuật máy tính","Chuyên đề cách suy nghĩ", "Excel cơ bản","Excel nâng cao"};
+		KhoaHocDB khdb=new KhoaHocDB();
+		String dataTenKH[]= khdb.getTenKhoaHoc();
 		
 		JTextField tfTenHocVien=new JTextField();
 		JTextField tfNgaySinh=new JTextField();
@@ -74,6 +81,52 @@ public class DangKyKhoaHocScreen {
 		botPanel.setBorder(BorderFactory.createEmptyBorder(pdTop, pdLeft, pdBot, pdRight));
 		botPanel.add(btnDangKy);
 		botPanel.add(btnBack);
+		
+		// submit
+		ActionListener btnDangKyActionListener= new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				 String tenhv= tfTenHocVien.getText();
+				 String ngaysinh= tfNgaySinh.getText();
+				 String diachi= tfDiaChi.getText();
+				 String sdt= tfSDT.getText();
+				 String tenkhoahoc=cbbTenKhoaHoc.getSelectedItem().toString().trim();
+				 boolean isThuPhi=cbDaThuPhi.isSelected();
+				 
+				 KhoaHocDB khdb=new KhoaHocDB();
+			
+				 String[]tenkhoahocData=khdb.getTenKhoaHoc();
+				 String[]makhoahocData=khdb.getMaKhoaHoc();
+				 
+				 String manv="NVQL01";
+
+				 Utils u = new Utils();
+				 
+				 String mahv=u.randomString(10);
+				 String makhoahoc="";
+				 
+				 for(int i=0;i<tenkhoahocData.length;++i) {
+//					 System.out.println(tenkhoahocData[i]);
+//					 System.out.println(tenkhoahoc);
+					 System.out.println(tenkhoahocData[i].trim().equals(tenkhoahoc));
+			
+					 if(tenkhoahocData[i].equals(tenkhoahoc)==true) {
+						 makhoahoc=makhoahocData[i];
+
+						 break;
+					 }
+				 }
+			
+				 DangKyKhoaHocController dangKyKhoaHocController=new DangKyKhoaHocController();
+				 dangKyKhoaHocController.setInfo(mahv,tenhv , ngaysinh, diachi, sdt,makhoahoc,manv,isThuPhi);
+				 dangKyKhoaHocController.insertChiTietThanhToanKhoaHoc();
+				return;
+			}
+		};
+		
+		btnDangKy.addActionListener(btnDangKyActionListener);
 		
 		
 		

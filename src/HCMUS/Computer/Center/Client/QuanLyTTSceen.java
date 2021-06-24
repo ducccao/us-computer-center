@@ -59,10 +59,37 @@ public class QuanLyTTSceen {
 				return;
 			}
 		};
+		
+		ActionListener lapLichHocActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				LapLichHocScreen fmLapLichHoc=new LapLichHocScreen();
+				fmLapLichHoc.render();
+				
+				
+				return;
+			}
+		};
+		
+		ActionListener dangkykhoahocActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				DangKyKhoaHocScreen f=new DangKyKhoaHocScreen();
+				f.render();
+				return;
+			}
+		};
 			
 		
 		btnTraCuuLopHoc.addActionListener(btnTraCuuLopHocActionListener);
 		btnTraCuuKhoaHoc.addActionListener(btnTraCuuKhoaHocActionListener);
+		btnLapLichHoc.addActionListener(lapLichHocActionListener);
+		btnDangKyKhoaHocChoHocVien.addActionListener(dangkykhoahocActionListener);
+		
 		
 		
 		btnTraCuuLopHoc.add(lbTraCuuLopHoc);

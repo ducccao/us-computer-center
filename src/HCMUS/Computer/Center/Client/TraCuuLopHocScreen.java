@@ -7,6 +7,8 @@ import HCMUS.Computer.Center.Logic.LopHocController;
 import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 // ACCOUNT
 // NVQL01
@@ -62,7 +64,7 @@ public class TraCuuLopHocScreen {
 			JLabel lbDSLopHoc  = new JLabel("<html><body style='height:100vh;display:flex;justify-content:flex-start;'>Danh sách lớp học</body></html");
 			
 			// panel
-			GridLayout grid=new GridLayout(1,1);
+			GridLayout grid=new GridLayout(3,1);
 	
 
 			// Table lop hoc
@@ -142,7 +144,17 @@ public class TraCuuLopHocScreen {
 			btnBack.setLocation(250,250);
 			
 			
-//			panel.add(btnBack);
+			ActionListener btnBackActionListener=new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					fmTraCuuLopHoc.dispose();
+				}
+			};
+			btnBack.addActionListener(btnBackActionListener);
+			
+			panel.add(btnBack);
 			
 			
 			fmTraCuuLopHoc.add(panel);		

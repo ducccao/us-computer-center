@@ -149,6 +149,8 @@ insert into `nhanvienquanly` (maNhanVien,matKhau,chucVu,hoTen,ngaySinh,diaChi,sd
 values ('NVQL01','123123','NVQL','Huy Kha','20/09/1999','Q10 HCM','123456789');
 insert into `nhanvienquanly` (maNhanVien,matKhau,chucVu,hoTen,ngaySinh,diaChi,sdt) 
 values ('NVQL02','123123','NVQL','Minh Hoàng','01/01/1999','Q10 HCM','123456789');
+insert into `nhanvienquanly` (maNhanVien,matKhau,chucVu,hoTen,ngaySinh,diaChi,sdt) 
+values ('1','1','NVQL','admin','01/01/1999','Q10 HCM','123456789');
 
 
 -- ---------------------------------------------------------

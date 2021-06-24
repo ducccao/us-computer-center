@@ -2,6 +2,8 @@ package HCMUS.Computer.Center.Client;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -86,6 +88,16 @@ public class TraCuuKhoaHocScreen {
 		JButton btnBack=new JButton("Trở về");
 		btnBack.setBounds(150, 150, 150, 150);
 		
+		
+		ActionListener btnBackActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				f.dispose();
+			}
+		};
+		btnBack.addActionListener(btnBackActionListener);
 
 		
 		// panel
@@ -93,6 +105,7 @@ public class TraCuuKhoaHocScreen {
 		panel.setLayout(new GridLayout(3,1));
 		panel.add(lbTCKH);
 		panel.add(sp);
+		panel.add(btnBack);
 
 		
 //		f.setLayout(null);

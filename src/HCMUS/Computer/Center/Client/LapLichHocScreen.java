@@ -2,8 +2,11 @@ package HCMUS.Computer.Center.Client;
 import javax.swing.*;
 
 
+import HCMUS.Computer.Center.Logic.LichHocController;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LapLichHocScreen {
 	public void render() {
@@ -27,15 +30,50 @@ public class LapLichHocScreen {
 		JTextField tfGioBD=new JTextField();
 		JTextField tfGioKT=new JTextField();
 		
+		// makh combobox
+		String dataMaKH[]= {"KH01","KH02","KH03"};
+		JComboBox cbbMaKH=new JComboBox(dataMaKH);
+		
 		
 		// buttons
 		JButton btnLapLich=new JButton("Lập lịch");
 		JButton btnBack=new JButton("Trở về");
 		
 		
-		// makh combobox
-		String dataMaKH[]= {"KH01","KH02","KH03"};
-		JComboBox cbbMaKH=new JComboBox(dataMaKH);
+		ActionListener btnBackListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				fm.dispose();
+				
+			}
+		};
+		
+		ActionListener btnLapLichActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String ngayBatDau=tfNgayBD.getText();
+				String ngayKetThuc=tfNgayKT.getText();
+				String ngayHocTrongTuan=tfNgayHocTrongTuan.getText();
+				String gioBatDau=tfGioBD.getText();
+				String gioKetThuc=tfGioKT.getText();
+				String maKhoaHoc=cbbMaKH.getSelectedItem().toString();
+				
+				LichHocController lichhocController=new LichHocController();
+				lichhocController.lapLichHoc(ngayBatDau, ngayKetThuc, ngayHocTrongTuan, gioBatDau, gioKetThuc, maKhoaHoc);
+		
+				JOptionPane.showMessageDialog(new JFrame(), "Thêm thành công!");
+				
+			}
+		};
+		
+		btnBack.addActionListener(btnBackListener);
+		btnLapLich.addActionListener(btnLapLichActionListener);
+		
+
 		
 		// panel
 		Panel pn=new Panel();

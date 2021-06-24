@@ -113,4 +113,11 @@ public class KhoaHocDB {
 		return all;
 	}
 	
+	public String[] getMaKhoaHoc() {
+		return this.maKhoaHocData;
+	}
+	public String[] getTenKhoaHoc() {
+		return this.tenKhoaHocDatac;
+	}
+	
 }

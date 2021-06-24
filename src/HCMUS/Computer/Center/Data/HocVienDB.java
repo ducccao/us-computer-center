@@ -17,6 +17,8 @@ public class HocVienDB {
 	private Vector<String>  sdtData=new Vector<String>(0);
 	private Vector<Vector<String>> all=new Vector<Vector<String>>(0);
 	
+
+	
 	
 	public HocVienDB() {
 		layThongTin();
@@ -113,7 +115,7 @@ public class HocVienDB {
 	}
 	public Vector<String> layTatCaSDTHocVien() {
 		
-		return ngaySinhData;
+		return sdtData;
 	}
 	
 

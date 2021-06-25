@@ -60,7 +60,7 @@ public class TraCuuThongTinHocVienScreen {
 		JComboBox cbbMAHV=new JComboBox(dataMaHV);
 		
 		// buttons
-		JButton btnTraCuu=new JButton("Tra cứu");
+		JButton btnTraCuu=new JButton("Kết quả học tập");
 		JButton btnBack=new JButton("Trở về");
 		
 	
@@ -100,41 +100,25 @@ public class TraCuuThongTinHocVienScreen {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String mahv=cbbMAHV.getSelectedItem().toString().trim();
-
-				Utils u =new Utils();
-				for(int i=0;i<dsMaHocVien.size();++i) {
-					if(dsMaHocVien.get(i).trim().equals(mahv)==true) {
-						System.out.print("equal!");
-						dataDSHocVien=new String[1][];
+				String mahv=cbbMAHV.getSelectedItem().toString().trim();			
+						HocVienKetQuaKhoaHocScreen hvkqScreen=new HocVienKetQuaKhoaHocScreen();
+						hvkqScreen.render(mahv);
 						
-						String[] recordHocVien=new String[5];
-						recordHocVien[0]=dsMaHocVien.get(i);
-						recordHocVien[1]=hoTens.get(i);
-						recordHocVien[2]=ngaySinhs.get(i);
-						recordHocVien[3]=diaChis.get(i);
-						recordHocVien[4]=sdts.get(i);
-						dataDSHocVien=u.addArr1StrIntoArr2String(dataDSHocVien, recordHocVien);
-						JOptionPane op=new JOptionPane();
-						
-						JFrame f=new JFrame();
-						JLabel b=new JLabel("<html>"
-								+ "<br/> Mã học viên: "+dsMaHocVien.get(i)
-								+ "<br/>  Họ tên: "+hoTens.get(i)
-								+ "<br/>  Ngày sinh: "+ngaySinhs.get(i)
-								+ "<br/>  Địa chỉ: "+diaChis.get(i)
-								+ "<br/>  SDT: "+sdts.get(i)
-								+"</html>");
-						op.showMessageDialog(f,b);
-						break;
-					}
-				
-			
+//						JFrame f=new JFrame();
+//						JLabel b=new JLabel("<html>"
+//								+ "<br/> Mã học viên: "+dsMaHocVien.get(i)
+//								+ "<br/>  Họ tên: "+hoTens.get(i)
+//								+ "<br/>  Ngày sinh: "+ngaySinhs.get(i)
+//								+ "<br/>  Địa chỉ: "+diaChis.get(i)
+//								+ "<br/>  SDT: "+sdts.get(i)
+//								+"</html>");
+//						op.showMessageDialog(f,b);
+					
 				}
 			
 				
 				
-			}
+			
 		};
 		
 		btnBack.addActionListener(btnBackActionListener);

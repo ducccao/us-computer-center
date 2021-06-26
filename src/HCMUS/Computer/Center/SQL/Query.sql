@@ -19,8 +19,33 @@ set GPA='5' , daDau=false
 where maKhoaHoc='KH01'
 and maHocVien = 'HV01';
 
+-- tra cuu thong tin giay chung nhan
+select cn.maHocVien, hv.hoTen , cn.maLop, lh.tenLop ,cn.daNhan
+from `hocvienchitietgiaychungnhan` cn
+left join `hocvien` hv
+on hv.maHocVien= cn.maHocVien
+left join `lophoc` lh
+on cn.maLop = lh.maLop;
+
+-- cap nhat hoc vien giay chung nhan
+select cn.maHocVien, hv.hoTen , cn.maLop, lh.tenLop ,cn.daNhan
+from `hocvienchitietgiaychungnhan` cn
+left join `hocvien` hv
+on hv.maHocVien= cn.maHocVien
+left join `lophoc` lh
+on cn.maLop = lh.maLop
+where cn.maHocVien = 'HV03';
+
+update `hocvienchitietgiaychungnhan` cn
+set daNhan = true 
+where cn.maHocVien='HV01' 
+and cn.maLop='LH01';
+
 
 use `us-computer-center`;
+
+
+select * from `hocvienchitietgiaychungnhan`;
 select * from `hocvienketquakhoahoc`;
 
 select * from `lichday`;

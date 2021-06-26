@@ -109,6 +109,18 @@ public class QuanLyTTSceen {
 				return;
 			}
 		};
+		
+		
+		ActionListener btnTraCuuTTGiayChungNhanActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				TraCuuGiayChungNhanScreen f= new TraCuuGiayChungNhanScreen();
+				f.render();
+				return;
+			}
+		};
 			
 		
 		btnTraCuuLopHoc.addActionListener(btnTraCuuLopHocActionListener);
@@ -117,6 +129,7 @@ public class QuanLyTTSceen {
 		btnDangKyKhoaHocChoHocVien.addActionListener(dangkykhoahocActionListener);
 		btnLapLichDay.addActionListener(btnLapLichDayActionListener);
 		btnTraCuuTTHocVien.addActionListener(btnTraCuuTTHocVienActionListener);
+		btnTraCuuTTGiayChungNhan.addActionListener(btnTraCuuTTGiayChungNhanActionListener);
 		
 		
 		btnTraCuuLopHoc.add(lbTraCuuLopHoc);

@@ -8,10 +8,10 @@ import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class LichDayDB {
-	private String url="jdbc:mysql://localhost:3306/us-computer-center";
-	private String username="root";
-	private String password="root";
+import HCMUS.Computer.Center.Logic.DBConfig;
+
+public class LichDayDB extends DBConfig {
+
 	private String tblName="lichday";
 	
 	public void insert(String maLichDay,String ngayBatDau,String ngayKetThuc,
@@ -35,6 +35,11 @@ public class LichDayDB {
 			pre.setString(7, maKhoaHoc);
 			
 			pre.execute();
+			
+			
+			JOptionPane op=new JOptionPane();
+			op.showMessageDialog(new JFrame(), "Thêm lịch dạy thành công!");
+		
 			
 			conn.close();
 			

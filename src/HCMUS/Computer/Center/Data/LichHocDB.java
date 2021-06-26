@@ -8,10 +8,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Random;
 
-public class LichHocDB {
-	private String Url="jdbc:mysql://localhost:3306/us-computer-center";
-	private String username="root";
-	private String password="root";
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import HCMUS.Computer.Center.Logic.DBConfig;
+
+public class LichHocDB extends DBConfig {
+
 	private String tblName="lichhoc";
 	
 	
@@ -28,7 +31,7 @@ public class LichHocDB {
 			String ngayKetThuc,String ngayHocTrongTuan,String gioBatDau
 			,String gioKetThuc,String maKhoaHoc) {
 			try {
-				Connection conn = DriverManager.getConnection(Url,username,password);
+				Connection conn = DriverManager.getConnection(url,username,password);
 				System.out.print("Connected to database");
 				
 				Statement stmt=conn.createStatement();
@@ -49,7 +52,8 @@ public class LichHocDB {
 				preparedStmt.setString(7, maKhoaHoc);
 				
 				preparedStmt.execute();
-				
+
+				JOptionPane.showMessageDialog(new JFrame(), "Thêm thành công!");
 				conn.close();
 				
 				

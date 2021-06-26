@@ -19,10 +19,74 @@ import HCMUS.Computer.Center.Logic.LapLichDayController;
 import Utils.Utils;
 
 public class LapLichDayScreen {
+	JFrame fm ;
+	// labels
+	JLabel lbMaKhoaHoc=new JLabel("Mã khóa học");
+	JLabel lbNgayBatDau=new JLabel("Ngày bắt đầu");
+	JLabel lbNgayKT=new JLabel("Ngày kết thúc");
+	JLabel lbNgayDayTrongTuan=new JLabel("Ngày dạy trong tuần");
+	JLabel lbGioBatDau=new JLabel("Giờ bắt đầu");
+	JLabel lbGioKT=new JLabel("Giờ kết thúc");
+	// textfields
+	JTextField tfNgayBD=new JTextField();
+	JTextField tfNgayKT=new JTextField();
+	JTextField tfNgayDayTrongTuan=new JTextField();
+	JTextField tfGioBD=new JTextField();
+	JTextField tfGioKT=new JTextField();
+	
+	// buttons
+	JButton btnLapLich=new JButton("Lập lịch");
+	JButton btnBack=new JButton("Trở về");
+	
+	JComboBox cbbMaKH;
+	
+	// layout
+	JPanel topPanel=new JPanel(new GridLayout(2, 1));
+	JPanel midPanel=new JPanel(new GridLayout(10, 1));
+	JPanel bottomPanel=new JPanel(new GridLayout(1, 1));
+	
+	// action 
+	ActionListener btnBackActionListener= new  ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			fm.dispose();
+		
+		}
+	};
+				
+	ActionListener btnLapLichActionListener=new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			Utils u = new Utils();
+			String maLichDay= u.randomString(10);
+			String ngayBatDau=tfNgayBD.getText();
+			String ngayKetThuc=tfNgayKT.getText();
+			String ngayDayTrongTuan= tfNgayDayTrongTuan.getText();
+			String gioBatDau=tfGioBD.getText();
+			String gioKetThuc=tfGioKT.getText();
+			String maKhoaHoc=cbbMaKH.getSelectedItem().toString();
+			
+			System.out.print(maLichDay+" "+ngayBatDau+" "+ngayKetThuc+" "
+					+ngayDayTrongTuan+" "+gioBatDau+" "+gioKetThuc+" "
+					+maKhoaHoc+" ");
+			
+			LapLichDayController lldayController=new LapLichDayController();
+			lldayController.setInfo(maLichDay, ngayBatDau, ngayKetThuc, ngayDayTrongTuan, gioBatDau, gioKetThuc, maKhoaHoc);
+			lldayController.insertLichDay();
 
+			
+	
+			
+		}
+	};
+			
 	
 		public void render() {
-			JFrame fm =new JFrame();
+			fm =new JFrame();
 			fm.setTitle("Lập lịch dạy");
 			int fmxSize=600;
 			int fmySize=500;
@@ -32,81 +96,17 @@ public class LapLichDayScreen {
 			int pdBot=20;
 			int pdRight=80;
 			
-			
-			// labels
-			JLabel lbMaKhoaHoc=new JLabel("Mã khóa học");
-			JLabel lbNgayBatDau=new JLabel("Ngày bắt đầu");
-			JLabel lbNgayKT=new JLabel("Ngày kết thúc");
-			JLabel lbNgayDayTrongTuan=new JLabel("Ngày dạy trong tuần");
-			JLabel lbGioBatDau=new JLabel("Giờ bắt đầu");
-			JLabel lbGioKT=new JLabel("Giờ kết thúc");
-			
-			
-			// textfields
-			JTextField tfNgayBD=new JTextField();
-			JTextField tfNgayKT=new JTextField();
-			JTextField tfNgayDayTrongTuan=new JTextField();
-			JTextField tfGioBD=new JTextField();
-			JTextField tfGioKT=new JTextField();
-			
-			// buttons
-			JButton btnLapLich=new JButton("Lập lịch");
-			JButton btnBack=new JButton("Trở về");
-			
+	
 			// makh combobox
 			KhoaHocDB khdb=new KhoaHocDB();
 			String dataMaKH[]= khdb.getMaKhoaHoc();
-			JComboBox cbbMaKH=new JComboBox(dataMaKH);
+			cbbMaKH=new JComboBox(dataMaKH);
 			
-			// action 
-			ActionListener btnBackActionListener= new  ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					fm.dispose();
-					return;
-				}
-			};
 			
-			ActionListener btnLapLichActionListener=new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					Utils u = new Utils();
-					String maLichDay= u.randomString(10);
-					String ngayBatDau=tfNgayBD.getText();
-					String ngayKetThuc=tfNgayKT.getText();
-					String ngayDayTrongTuan= tfNgayDayTrongTuan.getText();
-					String gioBatDau=tfGioBD.getText();
-					String gioKetThuc=tfGioKT.getText();
-					String maKhoaHoc=cbbMaKH.getSelectedItem().toString();
-					
-					System.out.print(maLichDay+" "+ngayBatDau+" "+ngayKetThuc+" "
-							+ngayDayTrongTuan+" "+gioBatDau+" "+gioKetThuc+" "
-							+maKhoaHoc+" ");
-					
-					LapLichDayController lldayController=new LapLichDayController();
-					lldayController.setInfo(maLichDay, ngayBatDau, ngayKetThuc, ngayDayTrongTuan, gioBatDau, gioKetThuc, maKhoaHoc);
-					lldayController.insertLichDay();
-
-					
-					
-					JOptionPane op=new JOptionPane();
-					op.showMessageDialog(new JFrame(), "Thêm lịch dạy thành công!");
-					return;
-					
-				}
-			};
-		
 			btnBack.addActionListener(btnBackActionListener);
 			btnLapLich.addActionListener(btnLapLichActionListener);
 			
-			// layout
-			JPanel topPanel=new JPanel(new GridLayout(2, 1));
-			JPanel midPanel=new JPanel(new GridLayout(10, 1));
-			JPanel bottomPanel=new JPanel(new GridLayout(1, 1));
+		
 			
 			topPanel.setBorder(BorderFactory.createEmptyBorder(pdTop, pdLeft, pdBot, pdRight));
 			topPanel.add(lbMaKhoaHoc);

@@ -1,5 +1,8 @@
 package HCMUS.Computer.Center.Logic;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import HCMUS.Computer.Center.Data.LichDayDB;
 
 public class LapLichDayController {
@@ -24,6 +27,15 @@ public class LapLichDayController {
 	
 	public void insertLichDay() {
 		LichDayDB lichDayDB=new LichDayDB();
+		
+		if(maLichDay.equals("")||ngayBatDau.equals("")||ngayKetThuc.equals("")
+				||ngayDayTrongTuan.equals("")||gioBatDau.equals("")||gioKetThuc.equals("")
+				||maKhoaHoc.equals("")) {
+			JOptionPane op= new JOptionPane();
+			op.showMessageDialog(new JFrame(), "Thông tin không được rỗng!");
+			return;
+		}
+		
 		lichDayDB.insert(maLichDay, ngayBatDau, ngayKetThuc, ngayDayTrongTuan, gioBatDau, gioKetThuc, maKhoaHoc);
 		return;
 	}

@@ -15,8 +15,24 @@ import java.awt.event.ActionListener;
 // 123123
 
 public class TraCuuLopHocScreen {
+	JFrame fmTraCuuLopHoc=new JFrame();
+	// labels
+	JLabel lbDSLopHoc  = new JLabel("<html><body style='height:100vh;display:flex;justify-content:flex-start;'>Danh sách lớp học</body></html");
 	
-		
+	// panel
+	GridLayout grid=new GridLayout(3,1);
+	
+	// btn backs
+	JButton btnBack=new JButton("Trở về");
+	
+
+	// panel
+	JPanel panel=new JPanel(grid);
+	
+	JTable tblLopHoc;
+	
+	JScrollPane tblLopHocPane;
+	
 		
 		public String[] addEleIntoArray1DimensionalString(String a[],String ele) {
 			String[] ret=new String[a.length+1];
@@ -49,28 +65,29 @@ public class TraCuuLopHocScreen {
 			}
 		}
 		
+		ActionListener btnBackActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				fmTraCuuLopHoc.dispose();
+			}
+		};
 	
 		public void render() {
 			
-			JFrame fmTraCuuLopHoc=new JFrame();
+		
 			fmTraCuuLopHoc.setTitle("Tra cứu lớp học");
 	
 			fmTraCuuLopHoc.setSize(600,400);
 			fmTraCuuLopHoc.setLocationRelativeTo(null);
 			fmTraCuuLopHoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			
-			
-			// labels
-			JLabel lbDSLopHoc  = new JLabel("<html><body style='height:100vh;display:flex;justify-content:flex-start;'>Danh sách lớp học</body></html");
-			
-			// panel
-			GridLayout grid=new GridLayout(3,1);
-	
-
 			// Table lop hoc
 			LopHocController lophocController=new LopHocController();
 			Vector<Vector<String>>dataTatCaLopHoc= lophocController.layTatCaLopHoc();
-			
+
+	
 			String dataMaLop[]=new String[0];
 			String dataTenLop[]=new String[0];
 			
@@ -103,8 +120,8 @@ public class TraCuuLopHocScreen {
 				dataString[i][1]=dataTenLop[i];
 			}
 			
-			// add malop
-			String dataStringTemp[][]= {{"lh01","lh02"},{"tenlop 1","ten lop 2"} };
+		
+	
 			/*
 			 * s[0][0]=lh01
 			 * s[0][1]=tenlop1
@@ -123,35 +140,26 @@ public class TraCuuLopHocScreen {
 			String col[]= {"Mã lóp học","Tên lớp học"};
 //			JTable tblLopHoc=new JTable(dataString,col);
 			
-			List arrListLopHocInfo=new List(0);
+		
 
 //			arrListLopHocInfo.add(dataMaLop);
 //			arrListLopHocInfo.add(dataTenLop);
 			
 
-			JTable tblLopHoc=new JTable(dataString,col);
+			tblLopHoc=new JTable(dataString,col);
 			
-			JScrollPane tblLopHocPane= new JScrollPane(tblLopHoc);
+			 tblLopHocPane= new JScrollPane(tblLopHoc);
 		 
-			// panel
-			JPanel panel=new JPanel(grid);
+	
 			panel.add(lbDSLopHoc);
 			panel.add(tblLopHocPane);
 			
-			// btn backs
-			JButton btnBack=new JButton("Trở về");
+		
 			btnBack.setBounds(50,50,50,50);
 			btnBack.setLocation(250,250);
 			
 			
-			ActionListener btnBackActionListener=new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					fmTraCuuLopHoc.dispose();
-				}
-			};
+		
 			btnBack.addActionListener(btnBackActionListener);
 			
 			panel.add(btnBack);

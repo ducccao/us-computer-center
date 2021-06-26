@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 
-public class LopHocDB {
-	private String Url="jdbc:mysql://localhost:3306/us-computer-center";
-	private String username="root";
-	private String password="root";
+import HCMUS.Computer.Center.Logic.DBConfig;
+
+public class LopHocDB extends DBConfig {
+
 	private String tblName="lophoc";
 	
 	private Vector<String>maLopHocData=new Vector<String>(0);
@@ -19,11 +19,9 @@ public class LopHocDB {
 		layThongTin();
 	}
 	
-	
-	
 	public void layThongTin() {
 		try {
-			Connection conn= DriverManager.getConnection(Url,username,password);
+			Connection conn= DriverManager.getConnection(url,username,password);
 			System.out.println("Connected to Database");
 			
 			

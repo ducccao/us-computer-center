@@ -18,8 +18,41 @@ import javax.swing.JTable;
 import HCMUS.Computer.Center.Data.GiayChungNhanDB;
 
 public class CapNhatHocVienGiayChungNhanScreen {
+	JFrame f=new JFrame();
+	
+	JTable tbInfoGiayCN;
+	JScrollPane srollPane;
+	
+	JLabel lbMaLop;
+	String[] dataMaLop ;
+	JComboBox<String> cbbMaLop;
+	
+	JLabel lbDaNhan= new JLabel("Đã nhận");
+	JCheckBox chbDaNhan= new JCheckBox();
+	
+	// button
+	JButton btnBack=new JButton("Trở về");
+	JButton btnUpdate = new JButton("Cập nhật");
+	
+	// layout
+	JPanel topPanel=new JPanel(new GridLayout(1,1));
+	JPanel midPanel= new JPanel(new GridLayout(2,2));
+	JPanel botPanel= new JPanel(new GridLayout(1,2));
+	
+	
+	ActionListener btnBackAction = new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			f.dispose();
+			return;
+		}
+	};
+
+	
 	public void render(String mahv) {
-		JFrame f=new JFrame();
+		
 		f.setTitle("Cập nhật học viên - giấy chứng nhận");
 		int x=600;
 		int y= 800;
@@ -33,30 +66,15 @@ public class CapNhatHocVienGiayChungNhanScreen {
 		// top panel content
 		cndb.getAll();
 		String[] cols= {"Mã học viên","Họ tên","Mã lớp","Tên lớp","Đã nhận"};
-		JTable tbInfoGiayCN=new JTable(cndb.getDataFoundByMaHV(),cols);
-		JScrollPane srollPane= new JScrollPane(tbInfoGiayCN);
+		 tbInfoGiayCN=new JTable(cndb.getDataFoundByMaHV(),cols);
+		 srollPane= new JScrollPane(tbInfoGiayCN);
 	
 		
 		// mid panel content
-		JLabel lbMaLop=new JLabel("Mã lớp");
+		 lbMaLop=new JLabel("Mã lớp");
 		String[] dataMaLop = cndb.getMaLop();
-		JComboBox<String> cbbMaLop= new JComboBox<String>(dataMaLop);
+		cbbMaLop= new JComboBox<String>(dataMaLop);
 		
-		JLabel lbDaNhan= new JLabel("Đã nhận");
-		JCheckBox chbDaNhan= new JCheckBox();
-	
-		// button
-		JButton btnBack=new JButton("Trở về");
-		JButton btnUpdate = new JButton("Cập nhật");
-		ActionListener btnBackAction = new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				f.dispose();
-				return;
-			}
-		};
 		ActionListener btnUpdateAction= new ActionListener() {
 			
 			@Override
@@ -68,14 +86,13 @@ public class CapNhatHocVienGiayChungNhanScreen {
 				cndb.update(daNhan, mahv, malop);
 			}
 		};
+	
+	
+		
 		btnBack.addActionListener(btnBackAction);
 		btnUpdate.addActionListener(btnUpdateAction);
 		
-		// layout
-		JPanel topPanel=new JPanel(new GridLayout(1,1));
-		JPanel midPanel= new JPanel(new GridLayout(2,2));
-		JPanel botPanel= new JPanel(new GridLayout(1,2));
-		
+	
 		
 		topPanel.add(srollPane);
 	

@@ -19,8 +19,54 @@ import javax.swing.JTextField;
 import HCMUS.Computer.Center.Data.GiayChungNhanDB;
 
 public class TraCuuGiayChungNhanScreen {
+	JFrame f = new JFrame();
+	
+	// labels
+
+	JLabel lbThongTinHocVienGiayChungNhan = new JLabel("Thông tin học viên - giấy chứng nhận");
+	JLabel lbCapNhatTTGiayCN = new JLabel("Cập nhật thông tin giấy chứng nhận");
+	JLabel lbMaHV = new JLabel("Mã học viên");
+	JLabel lbMaHVForCheckbox = new JLabel("Mã học viên");
+	
+	JComboBox cbbMaHV ;
+	JCheckBox chkbDaNhan = new JCheckBox("Đã nhận");
+	
+	// buttons
+	JButton btnCapNhat = new JButton("Cập nhật");
+	JButton btnBack = new JButton("Trở về");
+	
+	JTable tblHocVienGiayCN ;
+	JScrollPane scrPanel ;
+	
+	JPanel topPanel = new JPanel(new GridLayout(1, 2));
+	JPanel midPanel = new JPanel(new GridLayout(2, 1));
+	JPanel botPanel = new JPanel(new GridLayout(1, 1));
+	
+	
+	ActionListener btnBackActionListener = new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			f.dispose();
+
+		}
+	};
+	ActionListener btnCapNhatActionListener=new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			CapNhatHocVienGiayChungNhanScreen f2= new CapNhatHocVienGiayChungNhanScreen();
+			String mahv= cbbMaHV.getSelectedItem().toString();
+			f2.render(mahv);
+			return;
+		}
+	};
+
+	
 	public void render() {
-		JFrame f = new JFrame();
+	
 		f.setTitle("Tra cứu giấy chứng nhận");
 		int x = 600;
 		int y = 400;
@@ -34,45 +80,17 @@ public class TraCuuGiayChungNhanScreen {
 		GiayChungNhanDB cndb=new GiayChungNhanDB();
 		cndb.getAll();
 
-		// labels
-
-		JLabel lbThongTinHocVienGiayChungNhan = new JLabel("Thông tin học viên - giấy chứng nhận");
-		JLabel lbCapNhatTTGiayCN = new JLabel("Cập nhật thông tin giấy chứng nhận");
-		JLabel lbMaHV = new JLabel("Mã học viên");
-		JLabel lbMaHVForCheckbox = new JLabel("Mã học viên");
+	
 
 		// cbb mahocvien
 		String dataMaHV[] = cndb.getMaHocVien();
-		JComboBox cbbMaHV = new JComboBox(dataMaHV);
-		JCheckBox chkbDaNhan = new JCheckBox("Đã nhận");
+		 cbbMaHV = new JComboBox(dataMaHV);
 
-		JTextField tfMaHV = new JTextField("");
 
-		// buttons
-		JButton btnCapNhat = new JButton("Cập nhật");
-		JButton btnUpdate = new JButton("Cập nhật");
-		JButton btnBack = new JButton("Trở về");
+	
 
-		ActionListener btnBackActionListener = new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				f.dispose();
-
-			}
-		};
-		ActionListener btnCapNhatActionListener=new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				CapNhatHocVienGiayChungNhanScreen f2= new CapNhatHocVienGiayChungNhanScreen();
-				String mahv= cbbMaHV.getSelectedItem().toString();
-				f2.render(mahv);
-				return;
-			}
-		};
+	
+		
 		btnBack.addActionListener(btnBackActionListener);
 		btnCapNhat.addActionListener(btnCapNhatActionListener);
 		
@@ -81,19 +99,17 @@ public class TraCuuGiayChungNhanScreen {
 
 		String dataHVGCN[][] = cndb.getData();
 		String col[] = { "Mã học viên", "Tên học viên", "Mã lớp học", "Tên lớp học", "Trạng thái nhận" };
-		JTable tblHocVienGiayCN = new JTable(dataHVGCN, col);
-		JScrollPane scrPanel = new JScrollPane(tblHocVienGiayCN);
+		 tblHocVienGiayCN = new JTable(dataHVGCN, col);
+		 scrPanel = new JScrollPane(tblHocVienGiayCN);
 
 		// panel
-		JPanel topPanel = new JPanel(new GridLayout(1, 2));
+
 		
 		topPanel.setBorder(BorderFactory.createEmptyBorder(pdTop, pdLeft, pdBot, pdRight));
 
-		JPanel midPanel = new JPanel(new GridLayout(2, 1));
 		
 		midPanel.setBorder(BorderFactory.createEmptyBorder(pdTop, pdLeft, pdBot, pdRight));
 
-		JPanel botPanel = new JPanel(new GridLayout(1, 1));
 		
 		botPanel.setBorder(BorderFactory.createEmptyBorder(pdTop, pdLeft, pdBot, pdRight));
 

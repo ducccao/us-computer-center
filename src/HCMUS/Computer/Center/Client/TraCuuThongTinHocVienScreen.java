@@ -22,11 +22,66 @@ import HCMUS.Computer.Center.Data.HocVienDB;
 import Utils.Utils;
 
 public class TraCuuThongTinHocVienScreen {
-	 private String dataDSHocVien[][]= {};
-	 private	JTable tblDSHocVien;
-	 private JScrollPane scrollPanel;
+	JFrame fm=new JFrame();
+	private String dataDSHocVien[][]= {};
+		// labels
+	JLabel lbMaHocVien =new JLabel("Mã học viên");
+	JLabel lbDSHocVien =new JLabel("Danh sách học viên");
+		
+		// text field
+	JComboBox cbbMAHV;
+	// buttons
+	JButton btnTraCuu=new JButton("Kết quả học tập");
+	JButton btnBack=new JButton("Trở về");
+	 
+	JTable tblDSHocVien;
+	JScrollPane scrollPanel;
+	
+	// panels
+	JPanel topPanel=new JPanel(new GridLayout(1,1));
+	JPanel midPanel=new JPanel(new GridLayout(2,1));
+	JPanel botPanel=new JPanel(new GridLayout(2,1));
+	
+	// action
+	ActionListener btnBackActionListener=new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			fm.dispose();
+			return;
+		}
+	};
+	
+	ActionListener btnTraCuuActionListener=new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			String mahv=cbbMAHV.getSelectedItem().toString().trim();			
+					HocVienKetQuaKhoaHocScreen hvkqScreen=new HocVienKetQuaKhoaHocScreen();
+					hvkqScreen.render(mahv);
+					
+//					JFrame f=new JFrame();
+//					JLabel b=new JLabel("<html>"
+//							+ "<br/> Mã học viên: "+dsMaHocVien.get(i)
+//							+ "<br/>  Họ tên: "+hoTens.get(i)
+//							+ "<br/>  Ngày sinh: "+ngaySinhs.get(i)
+//							+ "<br/>  Địa chỉ: "+diaChis.get(i)
+//							+ "<br/>  SDT: "+sdts.get(i)
+//							+"</html>");
+//					op.showMessageDialog(f,b);
+				
+			}
+		
+			
+			
+		
+	};
+	 
+
 	public void render() {
-		JFrame fm=new JFrame();
+
 		fm.setTitle("Tra cứu thông tin học viên");
 		int x=600;
 		int y=400;
@@ -46,31 +101,16 @@ public class TraCuuThongTinHocVienScreen {
 		Vector<String>sdts=hvdb.layTatCaSDTHocVien();
 		
 		
-		// labels
-		JLabel lbMaHocVien =new JLabel("Mã học viên");
-		JLabel lbDSHocVien =new JLabel("Danh sách học viên");
-		
-		// text field
 		String dataMaHV[]= {};
 		
 		for(int i=0;i<dsMaHocVien.size();++i) {
 			dataMaHV=u.addEleIntoArray1DimesonalString(dataMaHV, dsMaHocVien.get(i));
 		}
 		
-		JComboBox cbbMAHV=new JComboBox(dataMaHV);
-		
-		// buttons
-		JButton btnTraCuu=new JButton("Kết quả học tập");
-		JButton btnBack=new JButton("Trở về");
-		
-	
-		
+		 cbbMAHV=new JComboBox(dataMaHV);
 		
 		// dshocvien
-		
-	
 
-	
 		for(int i=0;i<dsMaHocVien.size();++i) {
 			String[] recordHocVien=new String[5];
 			recordHocVien[0]=dsMaHocVien.get(i);
@@ -84,42 +124,7 @@ public class TraCuuThongTinHocVienScreen {
 		}
 		
 	
-		// action
-		ActionListener btnBackActionListener=new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				fm.dispose();
-				return;
-			}
-		};
-		
-		ActionListener btnTraCuuActionListener=new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				String mahv=cbbMAHV.getSelectedItem().toString().trim();			
-						HocVienKetQuaKhoaHocScreen hvkqScreen=new HocVienKetQuaKhoaHocScreen();
-						hvkqScreen.render(mahv);
-						
-//						JFrame f=new JFrame();
-//						JLabel b=new JLabel("<html>"
-//								+ "<br/> Mã học viên: "+dsMaHocVien.get(i)
-//								+ "<br/>  Họ tên: "+hoTens.get(i)
-//								+ "<br/>  Ngày sinh: "+ngaySinhs.get(i)
-//								+ "<br/>  Địa chỉ: "+diaChis.get(i)
-//								+ "<br/>  SDT: "+sdts.get(i)
-//								+"</html>");
-//						op.showMessageDialog(f,b);
-					
-				}
-			
-				
-				
-			
-		};
+
 		
 		btnBack.addActionListener(btnBackActionListener);
 		btnTraCuu.addActionListener(btnTraCuuActionListener);
@@ -127,12 +132,11 @@ public class TraCuuThongTinHocVienScreen {
 		
 	
 		String col[]= {"Mã học viên","Họ tên","Ngày sinh","Địa chỉ","Số điện thoại"};
-		JTable tblDSHocVien=new JTable(dataDSHocVien,col);
-		JScrollPane scrollPanel=new JScrollPane(tblDSHocVien);
+		 tblDSHocVien=new JTable(dataDSHocVien,col);
+		 scrollPanel=new JScrollPane(tblDSHocVien);
 		
 	
-		// panels
-		JPanel topPanel=new JPanel(new GridLayout(1,1));
+	
 		topPanel.setBorder(BorderFactory.createEmptyBorder(pdTop, pdLeft, pdBot, pdRight));
 		
 		topPanel.add(lbMaHocVien);
@@ -141,12 +145,10 @@ public class TraCuuThongTinHocVienScreen {
 
 		
 		
-		JPanel midPanel=new JPanel(new GridLayout(2,1));
 		midPanel.setBorder(BorderFactory.createEmptyBorder(pdTop, pdLeft, pdBot, pdRight));
 		midPanel.add(lbDSHocVien);
 		midPanel.add(scrollPanel);
 
-		JPanel botPanel=new JPanel(new GridLayout(2,1));
 		botPanel.setBorder(BorderFactory.createEmptyBorder(pdTop, pdLeft, pdBot, pdRight));
 		botPanel.add(btnBack);
 		

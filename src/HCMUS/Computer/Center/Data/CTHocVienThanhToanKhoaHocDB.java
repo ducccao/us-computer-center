@@ -8,10 +8,9 @@ import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class CTHocVienThanhToanKhoaHocDB {
-	private String url="jdbc:mysql://localhost:3306/us-computer-center";
-	private String username="root";
-	private String password="root";
+import HCMUS.Computer.Center.Logic.DBConfig;
+
+public class CTHocVienThanhToanKhoaHocDB extends DBConfig {
 	private String tblHocVien="hocvien";
 	private String tblChiTietThanhToan="chitiethocvienthanhtoankhoahoc";
 	
@@ -39,6 +38,8 @@ public class CTHocVienThanhToanKhoaHocDB {
 			preparedStmt.setString(7, sdt);
 			
 			preparedStmt.execute();
+			
+	
 			
 			conn.close();
 			

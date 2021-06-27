@@ -1,10 +1,10 @@
 package HCMUS.Computer.Center.Data;
 import java.sql.*;
 import java.util.Vector;
-public class KhoaHocDB {
-	private String Url="jdbc:mysql://localhost:3306/us-computer-center";
-	private String username="root";
-	private String password="root";
+
+import HCMUS.Computer.Center.Logic.DBConfig;
+public class KhoaHocDB extends DBConfig {
+
 	private String tblName="khoahoc";
 	private String maKhoaHocData[]=new String[0];
 	private String tenKhoaHocDatac[]=new String[0];
@@ -67,7 +67,7 @@ public class KhoaHocDB {
 	
 	public void layThongTin() {
 			try {
-				Connection conn=DriverManager.getConnection(Url,username,password);
+				Connection conn=DriverManager.getConnection(url,username,password);
 				Statement stmt=conn.createStatement();
 				
 				String sql="select * from "+ tblName;

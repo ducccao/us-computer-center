@@ -1,10 +1,10 @@
 package HCMUS.Computer.Center.Data;
 import java.sql.*;
 import java.util.Vector;
-public class HocVienDB {
-	private String Url="jdbc:mysql://localhost:3306/us-computer-center";
-	private String username="root";
-	private String password="root";
+
+import HCMUS.Computer.Center.Logic.DBConfig;
+public class HocVienDB extends DBConfig {
+
 	private String tblName="hocvien";
 	
 	
@@ -28,7 +28,7 @@ public class HocVienDB {
 	
 	public void layThongTin() {
 		try {
-			Connection conn= DriverManager.getConnection(Url,username,password);
+			Connection conn= DriverManager.getConnection(url,username,password);
 			System.out.println("Connected to Database");
 			
 			

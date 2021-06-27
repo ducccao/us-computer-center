@@ -10,6 +10,16 @@ import javax.swing.*;
 import HCMUS.Computer.Center.Logic.KhoaHocController;
 import java.util.Vector;
 public class TraCuuKhoaHocScreen {
+	JFrame f=new JFrame();
+	JLabel lbTCKH=new JLabel("Danh sách khóa học");
+	
+	JTable tbDanhSachKhoaHoc;
+	
+	JScrollPane sp;
+	
+	JButton btnBack=new JButton("Trở về");
+	
+	Panel panel=new Panel();
 	
 	// log vector<string[]>
 	
@@ -30,9 +40,17 @@ public class TraCuuKhoaHocScreen {
 		}
 	}
 	
+	ActionListener btnBackActionListener=new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			f.dispose();
+		}
+	};
 	
 	public void render() {
-		JFrame f=new JFrame();
+	
 		f.setTitle("Tra cứu khóa học");
 		
 		int fmxSize=600;
@@ -40,7 +58,7 @@ public class TraCuuKhoaHocScreen {
 		
 		
 		// labels
-		JLabel lbTCKH=new JLabel("Danh sách khóa học");
+
 		lbTCKH.setBounds(fmxSize/2-150/2,20,150,50);
 		
 		// get data
@@ -55,7 +73,7 @@ public class TraCuuKhoaHocScreen {
 		 * 
 		 * */
 		
-		logVectorStringAr(khoahocData);
+//		logVectorStringAr(khoahocData);
 		
 		// Table
 		String[]column= { "Mã khóa học","Tên khóa học","Học phí","Mã lớp học" };
@@ -76,32 +94,25 @@ public class TraCuuKhoaHocScreen {
 				}
 			} 
 		
-			logA2S(data);
+//			logA2S(data);
 	
 		
 	
-		JTable tbDanhSachKhoaHoc=new JTable(data,column);
+		 tbDanhSachKhoaHoc=new JTable(data,column);
 		tbDanhSachKhoaHoc.setBounds(10,60,10,60);
-		JScrollPane sp=new JScrollPane(tbDanhSachKhoaHoc);
+		 sp=new JScrollPane(tbDanhSachKhoaHoc);
 	
 		// buttons
-		JButton btnBack=new JButton("Trở về");
+
 		btnBack.setBounds(150, 150, 150, 150);
 		
 		
-		ActionListener btnBackActionListener=new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				f.dispose();
-			}
-		};
+	
 		btnBack.addActionListener(btnBackActionListener);
 
 		
 		// panel
-		Panel panel=new Panel();
+
 		panel.setLayout(new GridLayout(3,1));
 		panel.add(lbTCKH);
 		panel.add(sp);

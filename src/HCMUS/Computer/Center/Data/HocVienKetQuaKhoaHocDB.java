@@ -9,18 +9,17 @@ import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import HCMUS.Computer.Center.Logic.DBConfig;
 import Utils.Utils;
 
-public class HocVienKetQuaKhoaHocDB {
-	private String url="jdbc:mysql://localhost:3306/us-computer-center";
-	private String username="root";
-	private String password="root";
+public class HocVienKetQuaKhoaHocDB extends DBConfig {
+
 	private String tblName="hocvienketquakhoahoc";
 	
 	private String[] maHocViens=new String[0];
-	private String[] GPAs=new String[0];;
-	private String[] daDaus=new String[0];;
-	private String[] maKhoaHocs=new String[0];;
+	private String[] GPAs=new String[0];
+	private String[] daDaus=new String[0];
+	private String[] maKhoaHocs=new String[0];
 	
 	private String[] maKhoaHocVienHoc=new String[0];
 	
@@ -62,9 +61,14 @@ public class HocVienKetQuaKhoaHocDB {
 	
 	public String[][] getDataAfterFind() {
 		String[][]ret=new String[0][];
-		for(int i=0;i<4;++i) {
+		
+		Utils u =new Utils();
+//		u.logArray1DimenssonalString(this.GPAs);
+		
+		for(int i=0;i<this.maHocViens.length;++i) {
+			System.out.print(maHocViens[i]);
 			String[]record= {this.maHocViens[i],this.GPAs[i],this.daDaus[i],this.maKhoaHocs[i]};
-			Utils u=new Utils();
+			
 			ret=u.addArr1StrIntoArr2String(ret, record);
 		}
 

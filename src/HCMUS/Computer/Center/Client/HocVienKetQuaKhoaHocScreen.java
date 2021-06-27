@@ -21,10 +21,41 @@ import HCMUS.Computer.Center.Data.HocVienKetQuaKhoaHocDB;
 import HCMUS.Computer.Center.Logic.HocVienKetQuaKhoaHocController;
 
 public class HocVienKetQuaKhoaHocScreen {
+	 JFrame f = new JFrame();
 
-	
+	 
+	 JLabel lbMaKhoaHoc=new JLabel("Mã khóa học");
+	 JLabel lbGPA=new JLabel("GPA: ");
+	 JLabel lbDD=new JLabel("Đã đậu");
+	 
+	 JTextField tfGPA=new JTextField();
+	 JComboBox cbbMaKH;
+	 JCheckBox chbDD=new JCheckBox();
+	 
+	 // buttons
+	 JButton btnBack=new JButton("Trở về");
+	 JButton btnCapNhat=new JButton("Cập nhật");
+	 
+	 JTable tblKetQuaHocTap;
+	 JScrollPane scrollPanel;
+	 
+	 // panels
+	 JPanel topPanel=new JPanel(new GridLayout(1,1));
+	 JPanel midPanel=new JPanel(new GridLayout(3,2));
+	 JPanel botPanel=new JPanel(new GridLayout(1,2));
+	 
+	 ActionListener btnBackActionListener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				f.dispose();
+			}
+		};
+		
+
 	public void render(String mahv) {
-		 JFrame f = new JFrame();
+	
 		 f.setTitle("Học viên - kết quả khóa học");
 		
 		 int xSize=600;
@@ -36,10 +67,10 @@ public class HocVienKetQuaKhoaHocScreen {
 			
 		 
 		 // student detail
-		 String[][] studentDetail=new String[4][];
+		
 		 HocVienKetQuaKhoaHocDB kqkhdb=new HocVienKetQuaKhoaHocDB();
 		 kqkhdb.findByMaHV(mahv);
-		 studentDetail=kqkhdb.getDataAfterFind();
+		 String[][] studentDetail=kqkhdb.getDataAfterFind();
 		 
 //		 JLabel lbstudentDetail=new JLabel("<html>"
 //		 		+ "<br/>Mã học viên: "+studentDetail[0]
@@ -49,64 +80,47 @@ public class HocVienKetQuaKhoaHocScreen {
 //		 		+ "<html/>");
 		 
 		 // edit info
-		 JLabel lbMaKhoaHoc=new JLabel("Mã khóa học");
-		 JLabel lbGPA=new JLabel("GPA: ");
-		 JLabel lbDD=new JLabel("Đã đậu");
+		 
+			ActionListener btnCapNhatActionListener=new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					HocVienKetQuaKhoaHocController hvkqController=new HocVienKetQuaKhoaHocController();
+					
+					String maHocVien=mahv;
+					String gpa=tfGPA.getText().toString().trim();
+					boolean daDau=chbDD.isSelected();
+					String maKhoaHoc=cbbMaKH.getSelectedItem().toString().trim();
+					
+					hvkqController.setInfo(maHocVien,gpa, daDau, maKhoaHoc);
+					hvkqController.updateKetQua();
+					
+				
+					
+				}
+			}; 
+		
+
 		 
 		 kqkhdb.findAllMaKhoaHocHocVienDaHoc(mahv);
 		 
-		 JTextField tfGPA=new JTextField();
-		 JComboBox cbbMaKH=new JComboBox(kqkhdb.getAllMaKhoaHocHocVienHoc());
-		 JCheckBox chbDD=new JCheckBox();
-		 
-		
-		 // buttons
-		 JButton btnBack=new JButton("Trở về");
-		 JButton btnCapNhat=new JButton("Cập nhật");
-		 
-		ActionListener btnBackActionListener=new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				f.dispose();
-			}
-		};
-		
-		ActionListener btnCapNhatActionListener=new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				HocVienKetQuaKhoaHocController hvkqController=new HocVienKetQuaKhoaHocController();
-				
-				String maHocVien=mahv;
-				String gpa=tfGPA.getText().toString().trim();
-				boolean daDau=chbDD.isSelected();
-				String maKhoaHoc=cbbMaKH.getSelectedItem().toString().trim();
-				
-				hvkqController.setInfo(maHocVien,gpa, daDau, maKhoaHoc);
-				hvkqController.updateKetQua();
-				
-			
-				
-			}
-		};
-		
+	
+		  cbbMaKH=new JComboBox(kqkhdb.getAllMaKhoaHocHocVienHoc());
+
+	
 		 btnBack.addActionListener(btnBackActionListener);
 		 btnCapNhat.addActionListener(btnCapNhatActionListener);
 		 
 		 // table
-		 JLabel lbKetQua=new JLabel("Kết quả học tập");
+	
+		 
 		 String col[]= {"Mã học viên","GPA","Đã đậu","Mã khóa học"};
-		 String dataString[][]= {{"HV01","9.0","1","KH01"}};
-		 JTable tblKetQuaHocTap=new JTable(studentDetail,col);
-		 JScrollPane scrollPanel=new JScrollPane(tblKetQuaHocTap);
+
+		  tblKetQuaHocTap=new JTable(studentDetail,col);
+		  scrollPanel=new JScrollPane(tblKetQuaHocTap);
 		
-		 // panels
-		 JPanel topPanel=new JPanel(new GridLayout(1,1));
-		 JPanel midPanel=new JPanel(new GridLayout(3,2));
-		 JPanel botPanel=new JPanel(new GridLayout(1,2));
+
 		 
 //		 topPanel.add(lbKetQua);
 		 topPanel.add(scrollPanel);
